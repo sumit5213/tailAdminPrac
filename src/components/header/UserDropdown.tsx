@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { Link } from "react-router";
+import NavigationToggle from "../common/NavigationToggle";
 
 export default function UserDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +57,10 @@ export default function UserDropdown() {
           <span className="mt-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">
             randomuser@pimjo.com
           </span>
+        </div>
+
+        <div className="py-2 mt-3 border-t border-b border-gray-200 dark:border-gray-800">
+          <NavigationToggle />
         </div>
 
         <ul className="flex flex-col gap-1 pt-4 pb-3 border-b border-gray-200 dark:border-gray-800">
