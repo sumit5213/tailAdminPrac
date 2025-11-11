@@ -1,0 +1,233 @@
+{
+  "common": {
+    "home": "मुख",
+    "searchPlaceholder": "खोजें या कमांड टाइप करें...",
+    "close": "बंद करें",
+    "saveChanges": "बदलाव सहेजें",
+    "edit": "संपादित करें",
+    "viewMore": "और देखें",
+    "delete": "हटाएं",
+    "sales": "बिक्री",
+    "revenue": "राजस्व",
+    "page": "पृष्ठ"
+  },
+  "status": {
+    "active": "सक्रिय",
+    "pending": "लंबित",
+    "canceled": "रद्द",
+    "delivered": "पहुंचा दिया"
+  },
+  "layout": {
+    "sidebar": {
+      "menu": "मेनू",
+      "dashboard": "डैशबोर्ड",
+      "ecommerce": "ई-कॉमर्स",
+      "calendar": "कैलेंडर",
+      "profile": "उपयोगकर्ता प्रोफ़ाइल",
+      "forms": "फॉर्म",
+      "formElements": "फॉर्म के तत्व",
+      "tables": "तालिकाएँ",
+      "basicTables": "बुनियादी तालिकाएँ",
+      "pages": "पृष्ठ",
+      "blankPage": "रिक्त पृष्ठ"
+    },
+    "sidebarWidget": {
+      "title": "#1 टेलविंड CSS डैशबोर्ड",
+      "description": "400+ UI घटकों और पृष्ठों के साथ अग्रणी टेलविंड CSS एडमिन टेम्प्लेट।",
+      "button": "प्लान खरीदें"
+    },
+    "userDropdown": {
+      "editProfile": "प्रोफ़ाइल संपादित करें",
+      "accountSettings": "खाता सेटिंग्स",
+      "support": "समर्थन",
+      "signOut": "साइन आउट करें"
+    },
+    "notification": {
+      "title": "अधिसूचना",
+      "viewAll": "सभी सूचनाएं देखें",
+      "requestTemplate": "{{name}} ने {{project}} को बदलने की अनुमति मांगी है",
+      "project": "प्रोजेक्ट",
+      "projectApp": "प्रोजेक्ट - Nganter ऐप",
+      "ago": "पहले",
+      "min5": "5 मिनट",
+      "min8": "8 मिनट",
+      "min15": "15 मिनट",
+      "hr1": "1 घंटा"
+    },
+    "navToggle": {
+      "label": "साइड नेविगेशन",
+      "description": "साइड और टॉप नेविगेशन के बीच टॉगल करें।"
+    },
+    "langToggle": {
+      "label": "{{lang}} में बदलें"
+    },
+    "authLayout": {
+      "prompt": "फ्री और ओपन-सोर्स टेलविंड CSS एडमिन डैशबोर्ड टेम्प्लेट"
+    }
+  },
+  "pages": {
+    "dashboard": {
+      "customers": "ग्राहक",
+      "orders": "ऑर्डर",
+      "monthlySales": "मासिक बिक्री",
+      "monthlyTarget": "मासिक लक्ष्य",
+      "targetPrompt": "आपने प्रत्येक माह के लिए लक्ष्य निर्धारित किया है",
+      "targetMessage": "आपने आज $3287 कमाए, यह पिछले महीने से अधिक है। अपना अच्छा काम जारी रखें!",
+      "target": "लक्ष्य",
+      "today": "आज",
+      "statistics": "आंकड़े",
+      "statsPrompt": "आपने प्रत्येक माह के लिए लक्ष्य निर्धारित किया है",
+      "monthly": "मासिक",
+      "quarterly": "त्रैमासिक",
+      "annually": "वार्षिक",
+      "demographic": "ग्राहक जनसांख्यिकी",
+      "demographicPrompt": "देश के आधार पर ग्राहकों की संख्या",
+      "usa": "यूएसए",
+      "france": "फ्रांस",
+      "recentOrders": "हाल के ऑर्डर",
+      "filter": "फ़िल्टर",
+      "seeAll": "सभी देखें",
+      "products": "उत्पाद",
+      "category": "श्रेणी",
+      "price": "मूल्य",
+      "status": "स्थिति"
+    },
+    "calendar": {
+      "addEvent": "इवेंट जोड़ें +",
+      "modalTitleEdit": "इवेंट संपादित करें",
+      "modalTitleAdd": "इवेंट जोड़ें",
+      "modalPrompt": "अपने अगले बड़े पल की योजना बनाएं: ट्रैक पर बने रहने के लिए एक इवेंट शेड्यूल करें या संपादित करें",
+      "eventTitle": "इवेंट का शीर्षक",
+      "eventColor": "इवेंट का रंग",
+      "startDate": "प्रारंभ तिथि दर्ज करें",
+      "endDate": "समाप्ति तिथि दर्ज करें",
+      "updateChanges": "बदलाव सहेजें",
+      "eventConf": "इवेंट कॉन्फ.",
+      "meeting": "मीटिंग",
+      "workshop": "कार्यशाला"
+    },
+    "profile": {
+      "title": "प्रोफ़ाइल",
+      "editInfo": "व्यक्तिगत जानकारी संपादित करें",
+      "updatePrompt": "अपनी प्रोफ़ाइल को अद्यतित रखने के लिए अपना विवरण अपडेट करें।",
+      "socialLinks": "सोशल लिंक्स",
+      "facebook": "फेसबुक",
+      "x": "X.com",
+      "linkedin": "लिंक्डइन",
+      "instagram": "इंस्टाग्राम",
+      "personalInfo": "व्यक्तिगत जानकारी",
+      "firstName": "पहला नाम",
+      "lastName": "अंतिम नाम",
+      "email": "ईमेल पता",
+      "phone": "फ़ोन",
+      "bio": "बायो",
+      "addressTitle": "पता",
+      "country": "देश",
+      "cityState": "शहर/राज्य",
+      "postalCode": "पोस्टल कोड",
+      "taxId": "टैक्स आईडी",
+      "editAddress": "पता संपादित करें"
+    },
+    "forms": {
+      "title": "फॉर्म के तत्व"
+    },
+    "tables": {
+      "title": "बुनियादी तालिकाएँ"
+    },
+    "blank": {
+      "title": "रिक्त पृष्ठ",
+      "cardTitle": "कार्ड शीर्षक यहाँ",
+      "message": "ग्रिड या पैनल पर सामग्री डालना शुरू करें, आप ग्रिड के विभिन्न संयोजनों का भी उपयोग कर सकते हैं। कृपया डैशबोर्ड और अन्य पृष्ठों को देखें"
+    },
+    "notFound": {
+      "title": "त्रुटि",
+      "message": "हमें वह पृष्ठ नहीं मिल रहा है जिसे आप ढूंढ रहे हैं!",
+      "button": "मुख पृष्ठ पर वापस जाएं",
+      "footer": "© {{year}} - टेलएडमिन"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "साइन इन करें",
+      "prompt": "साइन इन करने के लिए अपना ईमेल और पासवर्ड दर्ज करें!",
+      "google": "Google के साथ साइन इन करें",
+      "x": "X के साथ साइन इन करें",
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "rememberMe": "मुझे लॉग इन रखें",
+      "forgotPassword": "पासवर्ड भूल गए?",
+      "button": "साइन इन करें",
+      "noAccount": "क्या आपका खाता नहीं है?",
+      "signUp": "साइन अप करें",
+      "back": "डैशबोर्ड पर वापस"
+    },
+    "signUp": {
+      "title": "साइन अप करें",
+      "prompt": "साइन अप करने के लिए अपना विवरण दर्ज करें!",
+      "google": "Google के साथ साइन अप करें",
+      "x": "X के साथ साइन अप करें",
+      "firstName": "पहला नाम",
+      "lastName": "अंतिम नाम",
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "terms": "खाता बनाकर, आप हमारी",
+      "termsAndConditions": "नियम और शर्तों",
+      "andOur": ", और हमारी",
+      "privacyPolicy": "गोपनीयता नीति",
+      "button": "साइन अप करें",
+      "hasAccount": "क्या आपका पहले से ही खाता है?",
+      "signIn": "साइन इन करें",
+      "back": "डैशबोर्ड पर वापस"
+    }
+  },
+  "components": {
+    "forms": {
+      "checkbox": "चेकबॉक्स",
+      "default": "डिफ़ॉल्ट",
+      "checked": "चयनित",
+      "disabled": "अक्षम",
+      "defaultInputs": "डिफ़ॉल्ट इनपुट",
+      "input": "इनपुट",
+      "inputPlaceholder": "प्लेसहोल्डर के साथ इनपुट",
+      "selectInput": "इनपुट चुनें",
+      "selectOption": "एक विकल्प चुनें",
+      "passwordInput": "पासवर्ड इनपुट",
+      "enterPassword": "अपना पासवर्ड दर्ज करें",
+      "datePicker": "दिनांक पिकर इनपुट",
+      "selectDate": "एक तारीख चुनें",
+      "timePicker": "समय पिकर इनपुट",
+      "paymentInput": "भुगतान के साथ इनपुट",
+      "dropzone": "ड्रॉपज़ोन",
+      "dropActive": "फ़ाइलें यहाँ छोड़ें",
+      "dropInactive": "फ़ाइलें यहाँ खींचें और छोड़ें",
+      "dropPrompt": "अपनी PNG, JPG, WebP, SVG छवियां यहां खींचें और छोड़ें या ब्राउज़ करें",
+      "browseFile": "फ़ाइल ब्राउज़ करें",
+      "fileInput": "फ़ाइल इनपुट",
+      "uploadFile": "फ़ाइल अपलोड करें",
+      "inputGroup": "इनपुट समूह",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "inputStates": "इनपुट स्टेट्स",
+      "inputStatesDesc": "फॉर्म नियंत्रणों पर त्रुटि, सफलता और अक्षम स्थितियों के लिए सत्यापन शैलियाँ।",
+      "errorHint": "यह एक अमान्य ईमेल पता है।",
+      "successHint": "यह एक सफलता संदेश है।",
+      "radioButtons": "रेडियो बटन",
+      "selected": "चयनित",
+      "selectInputs": "इनपुट चुनें",
+      "selectOptionPlaceholder": "विकल्प चुनें",
+      "multiSelect": "एकाधिक चयन विकल्प",
+      "multiSelectPlaceholder": "विकल्प चुनें",
+      "textarea": "टेक्स्टएरिया इनपुट फ़ील्ड",
+      "description": "विवरण",
+      "textareaErrorHint": "कृपया एक मान्य संदेश दर्ज करें।",
+      "toggleSwitch": "टॉगल स्विच इनपुट"
+    },
+    "tables": {
+      "user": "उपयोगकर्ता",
+      "projectName": "परियोजना का नाम",
+      "team": "टीम",
+      "status": "स्थिति",
+      "budget": "बजट"
+    }
+  }
+}

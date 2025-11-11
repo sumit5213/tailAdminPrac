@@ -1,0 +1,233 @@
+{
+  "common": {
+    "home": "Home",
+    "searchPlaceholder": "Search or type command...",
+    "close": "Close",
+    "saveChanges": "Save Changes",
+    "edit": "Edit",
+    "viewMore": "View More",
+    "delete": "Delete",
+    "sales": "Sales",
+    "revenue": "Revenue",
+    "page": "Page"
+  },
+  "status": {
+    "active": "Active",
+    "pending": "Pending",
+    "canceled": "Cancel",
+    "delivered": "Delivered"
+  },
+  "layout": {
+    "sidebar": {
+      "menu": "Menu",
+      "dashboard": "Dashboard",
+      "ecommerce": "Ecommerce",
+      "calendar": "Calendar",
+      "profile": "User Profile",
+      "forms": "Forms",
+      "formElements": "Form Elements",
+      "tables": "Tables",
+      "basicTables": "Basic Tables",
+      "pages": "Pages",
+      "blankPage": "Blank Page"
+    },
+    "sidebarWidget": {
+      "title": "#1 Tailwind CSS Dashboard",
+      "description": "Leading Tailwind CSS Admin Template with 400+ UI Component and Pages.",
+      "button": "Purchase Plan"
+    },
+    "userDropdown": {
+      "editProfile": "Edit profile",
+      "accountSettings": "Account settings",
+      "support": "Support",
+      "signOut": "Sign out"
+    },
+    "notification": {
+      "title": "Notification",
+      "viewAll": "View All Notifications",
+      "requestTemplate": "{{name}} requests permission to change {{project}}",
+      "project": "Project",
+      "projectApp": "Project - Nganter App",
+      "ago": "ago",
+      "min5": "5 min",
+      "min8": "8 min",
+      "min15": "15 min",
+      "hr1": "1 hr"
+    },
+    "navToggle": {
+      "label": "Side Navigation",
+      "description": "Toggle between side and top navigation."
+    },
+    "langToggle": {
+      "label": "Switch to {{lang}}"
+    },
+    "authLayout": {
+      "prompt": "Free and Open-Source Tailwind CSS Admin Dashboard Template"
+    }
+  },
+  "pages": {
+    "dashboard": {
+      "customers": "Customers",
+      "orders": "Orders",
+      "monthlySales": "Monthly Sales",
+      "monthlyTarget": "Monthly Target",
+      "targetPrompt": "Target you’ve set for each month",
+      "targetMessage": "You earn $3287 today, it's higher than last month. Keep up your good work!",
+      "target": "Target",
+      "today": "Today",
+      "statistics": "Statistics",
+      "statsPrompt": "Target you’ve set for each month",
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "annually": "Annually",
+      "demographic": "Customers Demographic",
+      "demographicPrompt": "Number of customer based on country",
+      "usa": "USA",
+      "france": "France",
+      "recentOrders": "Recent Orders",
+      "filter": "Filter",
+      "seeAll": "See all",
+      "products": "Products",
+      "category": "Category",
+      "price": "Price",
+      "status": "Status"
+    },
+    "calendar": {
+      "addEvent": "Add Event +",
+      "modalTitleEdit": "Edit Event",
+      "modalTitleAdd": "Add Event",
+      "modalPrompt": "Plan your next big moment: schedule or edit an event to stay on track",
+      "eventTitle": "Event Title",
+      "eventColor": "Event Color",
+      "startDate": "Enter Start Date",
+      "endDate": "Enter End Date",
+      "updateChanges": "Update Changes",
+      "eventConf": "Event Conf.",
+      "meeting": "Meeting",
+      "workshop": "Workshop"
+    },
+    "profile": {
+      "title": "Profile",
+      "editInfo": "Edit Personal Information",
+      "updatePrompt": "Update your details to keep your profile up-to-date.",
+      "socialLinks": "Social Links",
+      "facebook": "Facebook",
+      "x": "X.com",
+      "linkedin": "Linkedin",
+      "instagram": "Instagram",
+      "personalInfo": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email address",
+      "phone": "Phone",
+      "bio": "Bio",
+      "addressTitle": "Address",
+      "country": "Country",
+      "cityState": "City/State",
+      "postalCode": "Postal Code",
+      "taxId": "TAX ID",
+      "editAddress": "Edit Address"
+    },
+    "forms": {
+      "title": "Form Elements"
+    },
+    "tables": {
+      "title": "Basic Tables"
+    },
+    "blank": {
+      "title": "Blank Page",
+      "cardTitle": "Card Title Here",
+      "message": "Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages"
+    },
+    "notFound": {
+      "title": "ERROR",
+      "message": "We can’t seem to find the page you are looking for!",
+      "button": "Back to Home Page",
+      "footer": "© {{year}} - TailAdmin"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign In",
+      "prompt": "Enter your email and password to sign in!",
+      "google": "Sign in with Google",
+      "x": "Sign in with X",
+      "email": "Email",
+      "password": "Password",
+      "rememberMe": "Keep me logged in",
+      "forgotPassword": "Forgot password?",
+      "button": "Sign in",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign Up",
+      "back": "Back to dashboard"
+    },
+    "signUp": {
+      "title": "Sign Up",
+      "prompt": "Enter your email and password to sign up!",
+      "google": "Sign up with Google",
+      "x": "Sign up with X",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "terms": "By creating an account means you agree to the",
+      "termsAndConditions": "Terms and Conditions",
+      "andOur": ", and our",
+      "privacyPolicy": "Privacy Policy",
+      "button": "Sign Up",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "back": "Back to dashboard"
+    }
+  },
+  "components": {
+    "forms": {
+      "checkbox": "Checkbox",
+      "default": "Default",
+      "checked": "Checked",
+      "disabled": "Disabled",
+      "defaultInputs": "Default Inputs",
+      "input": "Input",
+      "inputPlaceholder": "Input with Placeholder",
+      "selectInput": "Select Input",
+      "selectOption": "Select an option",
+      "passwordInput": "Password Input",
+      "enterPassword": "Enter your password",
+      "datePicker": "Date Picker Input",
+      "selectDate": "Select a date",
+      "timePicker": "Time Picker Input",
+      "paymentInput": "Input with Payment",
+      "dropzone": "Dropzone",
+      "dropActive": "Drop Files Here",
+      "dropInactive": "Drag & Drop Files Here",
+      "dropPrompt": "Drag and drop your PNG, JPG, WebP, SVG images here or browse",
+      "browseFile": "Browse File",
+      "fileInput": "File Input",
+      "uploadFile": "Upload file",
+      "inputGroup": "Input Group",
+      "email": "Email",
+      "phone": "Phone",
+      "inputStates": "Input States",
+      "inputStatesDesc": "Validation styles for error, success and disabled states on form controls.",
+      "errorHint": "This is an invalid email address.",
+      "successHint": "This is an success message.",
+      "radioButtons": "Radio Buttons",
+      "selected": "Selected",
+      "selectInputs": "Select Inputs",
+      "selectOptionPlaceholder": "Select Option",
+      "multiSelect": "Multiple Select Options",
+      "multiSelectPlaceholder": "Select options",
+      "textarea": "Textarea input field",
+      "description": "Description",
+      "textareaErrorHint": "Please enter a valid message.",
+      "toggleSwitch": "Toggle switch input"
+    },
+    "tables": {
+      "user": "User",
+      "projectName": "Project Name",
+      "team": "Team",
+      "status": "Status",
+      "budget": "Budget"
+    }
+  }
+}

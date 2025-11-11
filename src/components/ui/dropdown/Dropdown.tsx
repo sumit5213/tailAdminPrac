@@ -1,5 +1,6 @@
 import type React from "react";
 import { useEffect, useRef } from "react";
+import { useDropdown } from "../../../context/DropdownContext"; // 
 
 interface DropdownProps {
   isOpen: boolean;
@@ -10,20 +11,22 @@ interface DropdownProps {
 
 export const Dropdown: React.FC<DropdownProps> = ({
   isOpen,
-  onClose,
+  onClose, // We still accept onClose as a prop for flexibility
   children,
   className = "",
 }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { closeAllDropdowns } = useDropdown(); // 2. Get context function
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node) &&
+        // 3. Check for the toggle class
         !(event.target as HTMLElement).closest(".dropdown-toggle")
       ) {
-        onClose();
+        closeAllDropdowns(); // 4. Use context function to close
       }
     };
 
@@ -31,7 +34,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [onClose]);
+  }, [closeAllDropdowns]); // 5. Depend on context function
 
   if (!isOpen) return null;
 

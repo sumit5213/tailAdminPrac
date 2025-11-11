@@ -1,55 +1,39 @@
 import { SidebarProvider, useSidebar } from "../context/SidebarContext";
-import { Outlet, useLocation } from "react-router"; 
+import { Outlet, useLocation } from "react-router";
 import AppHeader from "./AppHeader";
 import Backdrop from "./Backdrop";
 import AppSidebar from "./AppSidebar";
-import { useNavigation } from "../context/NavigationContext"; 
-import AppTopNav from "./AppTopNav"; 
-import { useEffect } from "react";
+import { useNavigation } from "../context/NavigationContext";
+import AppTopNav from "./AppTopNav";
+import { useEffect } from "react"; // Added useEffect
 
+// This is your original layout for the side navigation
 const LayoutContent: React.FC = () => {
-  const { isExpanded, isHovered, isMobileOpen } = useSidebar();
+  const { isExpanded, isHovered, isMobileOpen, toggleMobileSidebar } =
+    useSidebar();
   const { navStyle } = useNavigation();
   const location = useLocation();
 
-  const getMarginLeft = () => {
-    const nonAuthRoutes = [
-      "/",
-      "/calendar",
-      "/profile",
-      "/form-elements",
-      "/basic-tables",
-      "/blank",
-      "/line-chart",
-      "/bar-chart",
-      "/alerts",
-      "/avatars",
-      "/badge",
-      "/buttons",
-      "/images",
-      "/videos",
-    ];
-
-    if (!nonAuthRoutes.includes(location.pathname)) {
-      return "lg:ml-0"; 
+  // Close mobile sidebar on page change
+  useEffect(() => {
+    if (isMobileOpen) {
+      toggleMobileSidebar();
     }
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  const getMarginLeft = () => {
+    // In "top" nav mode, there is never a margin on desktop
     if (navStyle === "top") {
       return "lg:ml-0";
     }
 
+    // In "side" nav mode, calculate margin as before
     if (isExpanded || isHovered) {
       return "lg:ml-[290px]";
     }
     return "lg:ml-[90px]";
   };
-
-  const { toggleMobileSidebar } = useSidebar();
-  useEffect(() => {
-    if (isMobileOpen) {
-      toggleMobileSidebar();
-    }
-  }, [location]);
 
   return (
     <div className="min-h-screen xl:flex">
@@ -63,7 +47,7 @@ const LayoutContent: React.FC = () => {
           isMobileOpen ? "ml-0" : ""
         }`}
       >
-          {navStyle === "side" ? <AppHeader /> : <AppTopNav />}
+        {navStyle === "side" ? <AppHeader /> : <AppTopNav />}
 
         <div className="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
           <Outlet />

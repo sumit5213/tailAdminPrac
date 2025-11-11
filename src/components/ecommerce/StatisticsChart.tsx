@@ -1,8 +1,10 @@
 import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 import ChartTab from "../common/ChartTab";
+import { useTranslation } from "react-i18next";
 
 export default function StatisticsChart() {
+  const { t } = useTranslation();
   const options: ApexOptions = {
     legend: {
       show: false, // Hide legend
@@ -116,10 +118,10 @@ export default function StatisticsChart() {
       <div className="flex flex-col gap-5 mb-6 sm:flex-row sm:justify-between">
         <div className="w-full">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            Statistics
+            {t("pages.dashboard.statistics")}
           </h3>
           <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-            Target you’ve set for each month
+            {t("pages.dashboard.statsPrompt")}
           </p>
         </div>
         <div className="flex items-start w-full gap-3 sm:justify-end">
