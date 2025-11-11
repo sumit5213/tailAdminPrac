@@ -1,7 +1,9 @@
 import type React from "react";
 import { useEffect, useRef } from "react";
-import { useDropdown } from "../../../context/DropdownContext"; // 
-
+// 1. Import Redux hooks and actions
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../redux/store";
+import { closeAllDropdowns } from "../../../redux/reducers/dropdownSlice"; 
 interface DropdownProps {
   isOpen: boolean;
   onClose: () => void;
@@ -11,30 +13,32 @@ interface DropdownProps {
 
 export const Dropdown: React.FC<DropdownProps> = ({
   isOpen,
-  onClose, // We still accept onClose as a prop for flexibility
+  onClose,
   children,
   className = "",
 }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { closeAllDropdowns } = useDropdown(); // 2. Get context function
+  const dispatch = useDispatch<AppDispatch>(); 
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node) &&
-        // 3. Check for the toggle class
         !(event.target as HTMLElement).closest(".dropdown-toggle")
       ) {
-        closeAllDropdowns(); // 4. Use context function to close
+        dispatch(closeAllDropdowns()); 
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    if (isOpen) {                               // Only add listener if dropdown is open
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [closeAllDropdowns]); // 5. Depend on context function
+  }, [isOpen, dispatch]);
 
   if (!isOpen) return null;
 

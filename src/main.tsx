@@ -10,7 +10,9 @@ import { ThemeProvider } from "./context/ThemeContext.tsx";
 import { NavigationProvider } from "./context/NavigationContext.tsx";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
-import { DropdownProvider } from "./context/DropdownContext.tsx";
+// import { DropdownProvider } from "./context/DropdownContext.tsx";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,19 +23,21 @@ createRoot(document.getElementById("root")!).render(
         </div>
       }
     >
-      <I18nextProvider i18n={i18n}>
-        <ThemeProvider>
-          <NavigationProvider>
-            <DropdownProvider>
+      <Provider store={store}>
+        <I18nextProvider i18n={i18n}>
+          <ThemeProvider>
+            <NavigationProvider>
+              {/* <DropdownProvider> */}
               <Router>
                 <AppWrapper>
                   <App />
                 </AppWrapper>
               </Router>
-            </DropdownProvider>
-          </NavigationProvider>
-        </ThemeProvider>
-      </I18nextProvider>
+              {/* </DropdownProvider> */}
+            </NavigationProvider>
+          </ThemeProvider>
+        </I18nextProvider>
+      </Provider>
     </Suspense>
   </StrictMode>,
 );

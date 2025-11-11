@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
-import { useTranslation } from "react-i18next"; // 1. Import
+import { useTranslation } from "react-i18next"; 
 
-// Assume these icons are imported from an icon library
 import {
   CalenderIcon,
   ChevronDownIcon,

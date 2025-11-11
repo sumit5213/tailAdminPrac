@@ -5,30 +5,25 @@ import Backdrop from "./Backdrop";
 import AppSidebar from "./AppSidebar";
 import { useNavigation } from "../context/NavigationContext";
 import AppTopNav from "./AppTopNav";
-import { useEffect } from "react"; // Added useEffect
+import { useEffect } from "react"; 
 
-// This is your original layout for the side navigation
 const LayoutContent: React.FC = () => {
   const { isExpanded, isHovered, isMobileOpen, toggleMobileSidebar } =
     useSidebar();
   const { navStyle } = useNavigation();
   const location = useLocation();
 
-  // Close mobile sidebar on page change
   useEffect(() => {
     if (isMobileOpen) {
       toggleMobileSidebar();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   const getMarginLeft = () => {
-    // In "top" nav mode, there is never a margin on desktop
     if (navStyle === "top") {
       return "lg:ml-0";
     }
 
-    // In "side" nav mode, calculate margin as before
     if (isExpanded || isHovered) {
       return "lg:ml-[290px]";
     }

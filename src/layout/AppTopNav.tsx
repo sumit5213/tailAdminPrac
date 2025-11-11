@@ -8,50 +8,89 @@ import { Dropdown } from "../components/ui/dropdown/Dropdown";
 import { DropdownItem } from "../components/ui/dropdown/DropdownItem";
 // import { navItems, othersItems } from "./AppSidebar"; 
 import { navItems } from "./AppSidebar";
-import { useTranslation } from "react-i18next"; // A. Import useTranslation
-import { LanguageToggleButton } from "../components/common/LanguageToggleButton"; // B. Import new button
-import { DropdownProvider, useDropdown } from "../context/DropdownContext";
+import { useTranslation } from "react-i18next"; 
+import { LanguageToggleButton } from "../components/common/LanguageToggleButton"; 
+// import { DropdownProvider, useDropdown } from "../context/DropdownContext";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  openDropdown, toggleDropdown, closeAllDropdowns, selectActiveDropdown
+} from "../redux/reducers/dropdownSlice";
+import { AppDispatch } from "../redux/store";
+
+
 
 const TopNavLink: React.FC<{
   item: typeof navItems[0];
 }> = ({ item }) => {
   const location = useLocation();
   const { t } = useTranslation();
-  const { openDropdown, closeAllDropdowns, isDropdownOpen } = useDropdown();
+
+  const dispatch = useDispatch<AppDispatch>();
+  const activeDropdown = useSelector(selectActiveDropdown);
+  const isOpen = activeDropdown === item.name;
+
   const timerRef = useRef<number | null>(null);
 
-  const isOpen = isDropdownOpen(item.name);
-
-  const handleMouseEnter = () => {
+  const clearCloseTimer = () => {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
-    openDropdown(item.name);
+  };
+
+  const handleLinkClick = () => {
+    dispatch(closeAllDropdowns());
+  };
+
+  const handleButtonToggle = () => {
+    dispatch(toggleDropdown(item.name));
+  };
+
+  const handleButtonHover = () => {
+    clearCloseTimer();  
+    dispatch(openDropdown(item.name));
   };
 
   const handleMouseLeave = () => {
     timerRef.current = window.setTimeout(() => {
-      closeAllDropdowns();
-    }, 200); // 200ms delay to allow moving mouse to dropdown
+      dispatch(closeAllDropdowns());
+    }, 500);
   };
 
-  const handleDropdownContentEnter = () => {
-    // When mouse enters the dropdown content, cancel the close timer
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
+  const handleDropdownEnter = () => {
+    clearCloseTimer();
   };
 
-  const handleDropdownContentLeave = () => {
-    // When mouse leaves the content, close it immediately
-    closeAllDropdowns();
-  };
+  // const handleMouseEnter = () => {
+  //   if (timerRef.current) {
+  //     clearTimeout(timerRef.current);
+  //     timerRef.current = null;
+  //   }
+  //   openDropdown(item.name);
+  // };
 
-  const handleLinkClick = () => {
-    closeAllDropdowns();
-  };
+  // const handleMouseLeave = () => {
+  //   timerRef.current = window.setTimeout(() => {
+  //     closeAllDropdowns();
+  //   }, 5000); 
+  // };
+
+  // const handleDropdownContentEnter = () => {
+  //                                                             // When mouse enters the dropdown content, cancel the close timer
+  //   if (timerRef.current) {
+  //     clearTimeout(timerRef.current);
+  //     timerRef.current = null;
+  //   }
+  // };
+
+  // const handleDropdownContentLeave = () => {
+  //   // When mouse leaves the content, close it immediately
+  //   closeAllDropdowns();
+  // };
+
+  // const handleLinkClick = () => {
+  //   closeAllDropdowns();
+  // };
 
   const isLinkActive = (path: string) => location.pathname === path;
 
@@ -66,12 +105,11 @@ const TopNavLink: React.FC<{
       <Link
         to={item.path}
         onClick={handleLinkClick}
-        onMouseEnter={closeAllDropdowns} // Close nav dropdowns when hovering over a direct link
-        className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-          isParentActive
-            ? "text-brand-500 bg-brand-50 dark:bg-brand-500/15 dark:text-brand-400"
-            : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5"
-        }`}
+        onMouseEnter={() => dispatch(closeAllDropdowns())}
+        className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${isParentActive
+          ? "text-brand-500 bg-brand-50 dark:bg-brand-500/15 dark:text-brand-400"
+          : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5"
+          }`}
       >
         <span className="size-5">{item.icon}</span>
         {t(`layout.sidebar.${item.name}`)}
@@ -79,26 +117,24 @@ const TopNavLink: React.FC<{
     );
   }
 
-  // Dropdown for sub-items
+                                                        // Dropdown for sub-items
+
   return (
     <div
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+      className="relative" onMouseLeave={handleMouseLeave}>
       <button
-        className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-          isParentActive
-            ? "text-brand-500 bg-brand-50 dark:bg-brand-500/15 dark:text-brand-400"
-            : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5"
-        }`}
+        onClick={handleButtonToggle}
+        onMouseEnter={handleButtonHover}
+        className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${isParentActive
+          ? "text-brand-500 bg-brand-50 dark:bg-brand-500/15 dark:text-brand-400"
+          : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5"
+          }`}
       >
         <span className="size-5">{item.icon}</span>
         {t(`layout.sidebar.${item.name}`)}
         <svg
-          className={`stroke-current transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`stroke-current transition-transform duration-200 ${isOpen ? "rotate-180" : ""
+            }`}
           width="16"
           height="16"
           viewBox="0 0 20 20"
@@ -114,14 +150,10 @@ const TopNavLink: React.FC<{
         </svg>
       </button>
 
-      {/* This wrapper div is crucial for the hover logic */}
-      <div
-        onMouseEnter={handleDropdownContentEnter}
-        onMouseLeave={handleDropdownContentLeave}
-      >
+      <div onMouseEnter={handleDropdownEnter}>
         <Dropdown
           isOpen={isOpen}
-          onClose={closeAllDropdowns}
+          onClose={() => dispatch(closeAllDropdowns())} 
           className="absolute left-0 mt-1 flex w-56 flex-col rounded-2xl border border-gray-200 bg-white p-1 shadow-theme-lg dark:border-gray-800 dark:bg-gray-dark" // Reduced padding (p-1)
         >
           <ul className="flex flex-col gap-1">
@@ -131,11 +163,10 @@ const TopNavLink: React.FC<{
                   onItemClick={handleLinkClick}
                   tag="a"
                   to={subItem.path}
-                  className={`flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-theme-sm ${
-                    isLinkActive(subItem.path)
-                      ? "bg-brand-50 text-brand-500 dark:bg-brand-500/15 dark:text-brand-400"
-                      : "text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
-                  }`}
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-theme-sm ${isLinkActive(subItem.path)
+                    ? "bg-brand-50 text-brand-500 dark:bg-brand-500/15 dark:text-brand-400"
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+                    }`}
                 >
                   {t(`layout.sidebar.${subItem.name}`)}
                 </DropdownItem>
@@ -165,12 +196,10 @@ const AppTopNav: React.FC = () => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [t]);
 
   return (
-    <DropdownProvider>
       <header className="sticky top-0 flex w-full flex-col bg-white border-gray-200 z-99999 dark:border-gray-800 dark:bg-gray-900 lg:border-b">
-        {/* --- Top Bar (Logo, Search, Actions) --- */}
         <div className="flex items-center justify-between w-full gap-2 px-3 py-3 sm:gap-4 lg:px-6 lg:py-4">
           <div className="flex items-center gap-3">
             <button
@@ -270,9 +299,8 @@ const AppTopNav: React.FC = () => {
 
           {/* Right-side Actions */}
           <div
-            className={`${
-              isApplicationMenuOpen ? "flex" : "hidden"
-            } items-center justify-between w-full gap-4 px-5 py-4 lg:flex shadow-theme-md lg:w-auto lg:justify-end lg:px-0 lg:shadow-none`}
+            className={`${isApplicationMenuOpen ? "flex" : "hidden"
+              } items-center justify-between w-full gap-4 px-5 py-4 lg:flex shadow-theme-md lg:w-auto lg:justify-end lg:px-0 lg:shadow-none`}
           >
             <div className="flex items-center gap-2 2xsm:gap-3">
               <LanguageToggleButton />
@@ -290,7 +318,6 @@ const AppTopNav: React.FC = () => {
           ))}
         </nav>
       </header>
-    </DropdownProvider>
   );
 };
 

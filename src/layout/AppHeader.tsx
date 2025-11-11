@@ -6,7 +6,7 @@ import NotificationDropdown from "../components/header/NotificationDropdown";
 import UserDropdown from "../components/header/UserDropdown";
 import { LanguageToggleButton } from "../components/common/LanguageToggleButton";
 import { useTranslation } from "react-i18next";
-import { DropdownProvider } from "../context/DropdownContext";
+// import { DropdownProvider } from "../context/DropdownContext";
 
 const AppHeader: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
@@ -163,14 +163,14 @@ const AppHeader: React.FC = () => {
             isApplicationMenuOpen ? "flex" : "hidden"
           } items-center justify-between w-full gap-4 px-5 py-4 lg:flex shadow-theme-md lg:justify-end lg:px-0 lg:shadow-none`}
         >
-          <DropdownProvider>
+          {/* <DropdownProvider> */}
             <div className="flex items-center gap-2 2xsm:gap-3">
               <LanguageToggleButton />
               <ThemeToggleButton />
               <NotificationDropdown />
             </div>
             <UserDropdown />
-          </DropdownProvider>
+          {/* </DropdownProvider> */}
         </div>
       </div>
     </header>
